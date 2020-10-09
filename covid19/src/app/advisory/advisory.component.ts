@@ -28,14 +28,17 @@ export class AdvisoryComponent implements OnInit {
       var x = this.data.data.notifications[i];
       if((this.data.data.notifications[i].title).indexOf('2020') == 6){
         this.splitDate(this.data.data.notifications[i]);
+      }else{
+        this.advisories.push(this.data.data.notifications[i]);
       }
     }
     console.log(this.notifications);
+    console.log(this.advisories);
   }
 
   splitDate(x){
     this.notifications.push({
-      date: x.title.slice(0,10),
+      date: x.title.slice(0, 10),
       title: x.title.slice(10),
       link: x.link
     });
