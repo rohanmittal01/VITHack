@@ -1,0 +1,53 @@
+<div>
+  <div id="helplinediv">
+    <div class="row">
+      <div class="col-12" style="font-size: 30px; color: #664B9D">
+        <b>Contact Information</b>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-4 col-md-6 col-sm-12 mt-4" style="font-family: SF UI Display Thin;">
+        Helpline Number: {{data.data.contacts.primary.number}}
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12 mt-4" style="font-family: SF UI Display Thin;">
+        Toll Free: {{this.data.data.contacts.primary["number-tollfree"]}}
+      </div>
+      <div class="col-lg-4 col-md-12 col-sm-12">
+        <button class="btn" (click)="twitter()"><img src="../../assets/TWITTER.png" style="height:40px; width: auto;"></button>
+        <button class="btn" (click)="facebook()"><img src="../../assets/FB.png" style="height:40px; width: auto"></button>
+        <button class="btn" (click)="mail()"><img src="../../assets/MAIL.png" style="height:40px; width: auto"></button>
+        <button class="btn" (click)="website()"><img src="../../assets/MEDIA.png" style="height:40px; width: auto"></button>
+      </div>
+    </div>
+
+  </div>
+  <div class="row">
+    <h2 class="col-12" style="margin-top:40px; font-family: SF UI Display Medium;">Regional Helpline Number</h2>
+  </div>
+  <div class="row mt-2">
+    <div class="col-lg-6 col-md-6 col-sm-12 mt-4">
+      <table>
+        <tr>
+          <th style="font-family: SF UI Display Medium">State</th>
+          <th style="font-family: SF UI Display Medium;">Phone Number</th>
+        </tr>
+        <tr *ngFor="let state of data1;">
+          <td>{{ state.loc }}</td>
+          <td><a style="font-family: SF UI Display Light;" href="tel:{{state.number}}">{{state.number}}</a></td>
+        </tr>
+      </table>
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-12 mt-4">
+      <table>
+        <tr>
+          <th style="font-family: SF UI Display Medium">State</th>
+          <th style="font-family: SF UI Display Medium;">Phone Number</th>
+        </tr>
+        <tr *ngFor="let state of data2;">
+          <td>{{ state.loc }}</td>
+          <td><a style="font-family: SF UI Display Light;" href="tel:{{state.number}}">{{state.number}}</a></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
