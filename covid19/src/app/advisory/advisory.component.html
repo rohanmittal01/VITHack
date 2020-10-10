@@ -1,1 +1,44 @@
-<p>advisory works!</p>
+<div style="width:100%">
+    <div class="row">
+        <h1 class="col-12" style="margin-top:20px; font-family: SF Pro Display Regular;">Notifications and Advisories</h1>
+      </div>
+
+
+      <div class="row mt-4">
+        <mat-tab-group>
+          <mat-tab label="Notifications">
+            <div class="row col-12" style="display:block; text-align: center;">
+              <h3 class="mt-4">Notifications</h3>
+          </div>
+          <div class="row">
+            <div class="col-12">
+                <table id="notifications">
+                  <tr *ngFor="let note of notifications;">
+                    <td id="date" style="font-family: SF Pro Display Regular;">{{ note.date }}</td>
+                    <td id="title"><a style="font-family: SF Pro Display Regular;" href="{{note.link}}">{{note.title}}</a></td>
+                  </tr>
+                </table>
+              </div>
+          </div>
+          </mat-tab>
+          <mat-tab label="Advisories">
+            <div class="row col-12" style="display:block; text-align: center;">
+              <h3 class="mt-4">Advisory</h3>
+          </div>
+          <div class="row">
+            <div class="col-12">
+                <table id="notifications" style="display: block">
+                  <tr *ngFor="let note of advisories;">
+                    <td id="title"><a style="font-family: SF Pro Display Regular;" href="{{note}}">{{note}}</a></td>
+                  </tr>
+                </table>
+              </div>
+          </div>
+          </mat-tab>
+        </mat-tab-group>
+      </div>
+
+
+
+
+</div>

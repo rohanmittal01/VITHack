@@ -1,5 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~bootstrap/dist/css/bootstrap.css';
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+@font-face {
+    font-family: 'SF Pro Display Regular';
+    font-style: normal;
+    font-weight: normal;
+    src: local('SF Pro Display Regular'), url('assets/SF-Pro-Display-Regular.woff') format('woff');
+    }
 
 @font-face {
     font-family: 'SF UI Display Ultralight';
@@ -69,3 +76,4 @@ body{
     background-color: rgb(18,14,34);
     color: white
 }
+
