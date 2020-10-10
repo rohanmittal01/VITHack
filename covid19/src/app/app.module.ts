@@ -7,6 +7,8 @@ import { MatFormFieldModule} from '@angular/material/form-field';
 import { MatIconModule} from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule} from '@angular/material/select';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -16,6 +18,8 @@ import { RouterModule } from '@angular/router';
 import { HelplineComponent } from './helpline/helpline.component';
 import { AdvisoryComponent } from './advisory/advisory.component';
 import { HospitalComponent } from './hospital/hospital.component';
+import { environment } from 'src/environments/environment';
+import { GraphComponent } from './graph/graph.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +27,8 @@ import { HospitalComponent } from './hospital/hospital.component';
     NavbarComponent,
     HelplineComponent,
     AdvisoryComponent,
-    HospitalComponent
+    HospitalComponent,
+    GraphComponent
   ],
   imports: [
     BrowserModule,
@@ -38,10 +43,13 @@ import { HospitalComponent } from './hospital/hospital.component';
     MatIconModule,
     MatInputModule,
     MatSelectModule,
+    AngularFireDatabaseModule,
+    AngularFireModule.initializeApp(environment.firebase),
     RouterModule.forRoot([
       {path: '', component: HelplineComponent},
       {path: 'advisory', component: AdvisoryComponent},
-      {path: 'hospital', component: HospitalComponent}
+      {path: 'hospital', component: HospitalComponent},
+      {path: 'graph', component: GraphComponent}
     ])
   ],
   providers: [],
