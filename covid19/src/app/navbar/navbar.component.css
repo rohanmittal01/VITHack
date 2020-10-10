@@ -1,0 +1,16 @@
+.navbar {  
+    height: 60px;
+}
+
+.navbar-nav li {
+    padding-right : 2rem;
+}
+
+.active a {
+    border-bottom: 2px solid #3895d3;
+}
+
+
+a{
+    color: white
+}

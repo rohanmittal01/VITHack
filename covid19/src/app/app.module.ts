@@ -3,6 +3,9 @@ import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
 import {HttpClientModule} from '@angular/common/http';
 import {MatTabsModule} from '@angular/material/tabs';
+import { MatFormFieldModule} from '@angular/material/form-field';
+import { MatIconModule} from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
 
 
 import { AppComponent } from './app.component';
@@ -31,6 +34,9 @@ import { HospitalComponent } from './hospital/hospital.component';
     HttpClientModule,
     NoopAnimationsModule,
     MatTabsModule,
+    MatFormFieldModule,
+    MatIconModule,
+    MatInputModule,
     RouterModule.forRoot([
       {path: '', component: HelplineComponent},
       {path: 'advisory', component: AdvisoryComponent},

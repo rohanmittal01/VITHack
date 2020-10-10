@@ -5,7 +5,7 @@
     </div>
     <div class="row col-12">
       <div class="col-lg-6 col-md-6 col-sm-12">
-        <table>
+        <table style="margin: auto;">
           <tr>
             <th colspan="2" id="locality">Rural</th>
           </tr>
@@ -25,7 +25,7 @@
         </table>
       </div>
       <div class="col-lg-6 col-md-6 col-sm-12">
-        <table>
+        <table style="margin: auto">
           <tr>
             <th colspan="2" id="locality">Urban</th>
           </tr>
@@ -46,15 +46,35 @@
       </div>
     </div>
   </div>
-<div class="row mt-4" style="display: block; text-align: center; text-decoration: underline;">
+  <div
+    class="row mt-4"
+    style="
+      display: block;
+      text-align: center;
+      text-decoration: underline;
+      margin: 40px;
+    "
+  >
     <h2>Hospitals and Beds Information</h2>
-</div>
+  </div>
   <div class="row mt-4">
-    <mat-tab-group class="col-12">
+    <mat-tab-group class="row col-12">
       <mat-tab label="Regional">
         <div class="row col-12">
+          <div class="row col-12">
+            <mat-form-field class="search-form-field mt-2">
+              <mat-label style="color: white;">Search by State</mat-label>
+              <input
+                matInput
+                [(ngModel)]="searchKey"
+                placeholder="Type to search here."
+                autocomplete="off"
+                (keyup)="applyFilter2()"
+              >
+            </mat-form-field>
+          </div>
           <div class="col-lg-6 col-md-6 col-sm-12">
-            <table width="100%">
+            <table style="margin:auto">
               <tr>
                 <th rowspan="2" id="state">State</th>
                 <th colspan="2" id="place">Rural</th>
@@ -66,7 +86,7 @@
                 <th id="data">Hospitals</th>
                 <th id="data">Beds</th>
               </tr>
-              <ng-container *ngFor="let note of data.data.regional">
+              <ng-container *ngFor="let note of filteredData">
                 <tr>
                   <th rowspan="2" id="state2">{{ note.state }}</th>
                   <th id="placeCount">{{ note.ruralHospitals }}</th>
@@ -88,15 +108,39 @@
         </div>
       </mat-tab>
       <mat-tab label="Medical Colleges">
-        <div class="row col-12" style="display: block; text-align: center">
-          <h3 class="mt-4">Advisory</h3>
+        <div class="row col-12">
+          <mat-form-field class="search-form-field mt-2">
+            <mat-label style="color: white;">Search by City</mat-label>
+            <input
+              matInput
+              [(ngModel)]="searchKey"
+              placeholder="Type to search here."
+              autocomplete="off"
+              (keyup)="applyFilter()"
+            >
+          </mat-form-field>
         </div>
-        <div class="row">
-          <div class="col-12">
-            <table id="notifications" style="display: block">
-              <!-- <tr *ngFor="let note of advisories;"> -->
-              <!-- <td id="title"><a style="font-family: SF Pro Display Regular;" href="{{note}}">{{note}}</a></td> -->
-              <!-- </tr> -->
+        <div class="row col-12">
+          <div class="col-lg-6 col-md-6 col-sm-12">
+            <table style="margin: auto">
+              <tr>
+                <th id="med1">State</th>
+                <th id="med1">City</th>
+                <th id="place">Name</th>
+                <th id="state2">Ownership</th>
+                <th id="med2">Capacity</th>
+                <th id="med3">Beds</th>
+              </tr>
+              <ng-container *ngFor="let note of filteredMedData">
+                <tr>
+                  <th id="med2">{{ note.state }}</th>
+                  <th id="med2">{{ note.city }}</th>
+                  <th id="name">{{ note.name }}</th>
+                  <th id="placeCount">{{ note.ownership }}</th>
+                  <th id="placeCount">{{ note.admissionCapacity }}</th>
+                  <th id="data">{{note.hospitalBeds}}</th>
+                </tr>
+              </ng-container>
             </table>
           </div>
         </div>
