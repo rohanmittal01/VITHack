@@ -9,6 +9,19 @@ a{
     padding:8px 25px 8px 25px;
     
 }
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    color: white;
+  }
+  
+  td, th {
+    text-align: left;
+    padding: 10px;
+  }
+
 #title{
     background-color: rgb(30,20,36);
     border: 1px;
@@ -19,15 +32,10 @@ a{
 
 #notifications {
     border-collapse: separate;
-    border-spacing: 0 15px;
-    padding:0px 20px 0px 0px;
+    border-spacing: 10px 15px;
     font-size: 20px;
 }
-table{min-width:100%;}
 
-tr{
-    min-width: 100%
-}
 
 .mat-tab-label {
     width: 100%;

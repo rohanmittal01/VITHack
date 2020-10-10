@@ -1,1 +1,106 @@
-<p>hospital works!</p>
+<div>
+  <div class="row" style="background-color: rgb(16, 35, 54); padding: 20px">
+    <div class="row col-12" style="display: block; text-align: center">
+      <h2 style="color: rgb(21, 163, 161)">Dashboard Summary</h2>
+    </div>
+    <div class="row col-12">
+      <div class="col-lg-6 col-md-6 col-sm-12">
+        <table>
+          <tr>
+            <th colspan="2" id="locality">Rural</th>
+          </tr>
+          <tr>
+            <td id="category" colspan="1">No. of Hospitals</td>
+            <td id="category" colspan="1">No. of Beds</td>
+          </tr>
+          <tr>
+            <td id="values">{{ data.data.summary.ruralHospitals }}</td>
+            <td id="values">{{ data.data.summary.ruralBeds }}</td>
+          </tr>
+          <tr>
+            <td colspan="2" id="total">
+              Total No. of Hospitals: {{ data.data.summary.totalHospitals }}
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-12">
+        <table>
+          <tr>
+            <th colspan="2" id="locality">Urban</th>
+          </tr>
+          <tr>
+            <td id="category" colspan="1">No. of Hospitals</td>
+            <td id="category" colspan="1">No. of Beds</td>
+          </tr>
+          <tr>
+            <td id="values">{{ data.data.summary.urbanHospitals }}</td>
+            <td id="values">{{ data.data.summary.urbanBeds }}</td>
+          </tr>
+          <tr>
+            <td colspan="2" id="total">
+              Total No. of Beds: {{ data.data.summary.totalBeds }}
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+<div class="row mt-4" style="display: block; text-align: center; text-decoration: underline;">
+    <h2>Hospitals and Beds Information</h2>
+</div>
+  <div class="row mt-4">
+    <mat-tab-group class="col-12">
+      <mat-tab label="Regional">
+        <div class="row col-12">
+          <div class="col-lg-6 col-md-6 col-sm-12">
+            <table width="100%">
+              <tr>
+                <th rowspan="2" id="state">State</th>
+                <th colspan="2" id="place">Rural</th>
+                <th colspan="2" id="place">Urban</th>
+              </tr>
+              <tr>
+                <th id="data">Hospitals</th>
+                <th id="data">Beds</th>
+                <th id="data">Hospitals</th>
+                <th id="data">Beds</th>
+              </tr>
+              <ng-container *ngFor="let note of data.data.regional">
+                <tr>
+                  <th rowspan="2" id="state2">{{ note.state }}</th>
+                  <th id="placeCount">{{ note.ruralHospitals }}</th>
+                  <th id="placeCount">{{ note.ruralBeds }}</th>
+                  <th id="placeCount">{{ note.urbanHospitals }}</th>
+                  <th id="placeCount">{{ note.urbanBeds }}</th>
+                </tr>
+                <tr>
+                  <th colspan="2" id="hospitalCount">
+                    Total Hospitals: {{ note.totalHospitals }}
+                  </th>
+                  <th colspan="2" id="hospitalCount">
+                    Total Beds: {{ note.totalBeds }}
+                  </th>
+                </tr>
+              </ng-container>
+            </table>
+          </div>
+        </div>
+      </mat-tab>
+      <mat-tab label="Medical Colleges">
+        <div class="row col-12" style="display: block; text-align: center">
+          <h3 class="mt-4">Advisory</h3>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <table id="notifications" style="display: block">
+              <!-- <tr *ngFor="let note of advisories;"> -->
+              <!-- <td id="title"><a style="font-family: SF Pro Display Regular;" href="{{note}}">{{note}}</a></td> -->
+              <!-- </tr> -->
+            </table>
+          </div>
+        </div>
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+</div>

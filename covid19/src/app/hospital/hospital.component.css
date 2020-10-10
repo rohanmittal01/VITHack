@@ -1,0 +1,111 @@
+table {
+  border-collapse: separate;
+  border-spacing: 7px 15px;
+  width: 100%;
+}
+td,
+th {
+  padding: 10px;
+}
+
+#locality {
+  text-align: center;
+  background-color: rgb(17, 113, 120);
+  color: white;
+  border: 1px;
+  border-radius: 7px;
+}
+
+#category {
+  text-align: center;
+  background-color: rgb(15, 74, 88);
+  color: rgb(142, 178, 184);
+  border: 1px;
+  border-radius: 7px;
+  width: 50%;
+}
+
+#values {
+  text-align: center;
+  color: white;
+}
+
+#total {
+  text-align: center;
+  background-color: rgb(19, 138, 140);
+  color: white;
+  border: 1px;
+  border-radius: 7px;
+  font-weight: bold;
+}
+
+.mat-tab-label {
+  width: 100%;
+  padding: 5px;
+  background-color: transparent;
+  color: white;
+  font-weight: bold;
+  font-size: 30px;
+  font-family: 'SF Pro Display Regular';
+}
+
+/* Styles for the active tab label */
+.mat-tab-label.mat-tab-label-active {
+  /* min-width: 25px !important; */
+  width: 100%;
+  padding: 5px;
+  background-color: rgb(14, 56, 90);
+  color: white;
+}
+.mat-ink-bar {
+  background-color: green;
+}
+
+#state {
+    text-align: center;
+    background-color: rgb(21,163,161);
+    color: white;
+    border: 1px;
+    border-radius: 7px;
+    min-width: 200px;
+}
+#state2{
+    text-align: center;
+    background-color: rgb(16,65,79);
+    color: white;
+    border: 1px;
+    border-radius: 7px;
+    min-width: 200px;   
+}
+#place {
+    text-align: center;
+    background-color: white;
+    color: rgb(21,163,161);
+    border: 1px;
+    border-radius: 7px;
+    min-width: 500px;
+}
+
+#placeCount{
+    text-align: center;
+    background-color: rgb(17,25,44);
+    color: rgb(182,200,205);
+    border: 1px;
+    border-radius: 7px;
+}
+
+#data {
+    text-align: center;
+    background-color: rgb(15,57,73);
+    color: rgb(182,200,205);
+    border: 1px;
+    border-radius: 7px;
+}
+
+#hospitalCount{
+    text-align: center;
+    background-color: rgb(53,50,69);
+    color: white;
+    border: 1px;
+    border-radius: 7px;
+}

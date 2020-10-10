@@ -33,7 +33,8 @@ import { HospitalComponent } from './hospital/hospital.component';
     MatTabsModule,
     RouterModule.forRoot([
       {path: '', component: HelplineComponent},
-      {path: 'advisory', component: AdvisoryComponent}
+      {path: 'advisory', component: AdvisoryComponent},
+      {path: 'hospital', component: HospitalComponent}
     ])
   ],
   providers: [],
