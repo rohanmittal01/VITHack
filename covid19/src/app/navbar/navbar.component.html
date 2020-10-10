@@ -14,14 +14,19 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarToggler">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a id="helpline" class="nav-link" href="/">Helpline</a>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="">Helpline</a>
       </li>
-      <li class="nav-item">
-        <a id="advisory" class="nav-link" href="/advisory">Advisory</a>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="/advisory">Notifications & Advisory</a>
       </li>
-      <li class="nav-item">
-        <a id="hospital"class="nav-link" href="/hospital">Hospital</a>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="/hospital">Hospital</a>
+      </li>
+    </ul>
+    <ul class="navbar-nav ml-auto" routerLinkActive="active" >
+      <li>
+        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/4/41/Flag_of_India.svg/1200px-Flag_of_India.svg.png" class="nav-link" href="/" placeholeder="INDIA" style="height:60px; width: auto;">
       </li>
     </ul>
   </div>

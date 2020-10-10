@@ -7,7 +7,7 @@ a{
     border: 1px;
     border-radius: 10px;
     padding:8px 25px 8px 25px;
-    
+    font-family: 'SF UI Display Thin';
 }
 
 table {
@@ -37,7 +37,7 @@ table {
     border: 1px;
     border-radius: 10px;
     padding:8px 15px 8px 15px;
-    font-family: 'SF UI Display Light';
+    font-family: 'SF UI Display Thin';
 }
 
 
@@ -53,7 +53,8 @@ table {
     padding: 5px;
     background-color:  rgb(30,20,36);
     color:white;
-    font-weight: 700;
+    font-size: 24px;
+    letter-spacing: 0.5px;
 }
 
 /* Styles for the active tab label */
@@ -63,6 +64,8 @@ table {
     padding: 5px;
     background-color: rgb(186,78,58);
     color: white;
+    font-size: 24px;
+    letter-spacing: 0.5px;
 
 }
 .mat-ink-bar {

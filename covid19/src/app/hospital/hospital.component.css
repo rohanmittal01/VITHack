@@ -15,6 +15,7 @@ th {
   color: white;
   border: 1px;
   border-radius: 7px;
+  font-family: 'SF UI Display Light';
 }
 
 #category {
@@ -24,11 +25,13 @@ th {
   border: 1px;
   border-radius: 7px;
   width: 50%;
+  font-family: 'SF UI Display Light';
 }
 
 #values {
   text-align: center;
   color: white;
+  font-family: 'SF UI Display Light';
 }
 
 #total {
@@ -38,6 +41,7 @@ th {
   border: 1px;
   border-radius: 7px;
   font-weight: bold;
+  font-family: 'SF UI Display Light';
 }
 
 .mat-tab-label {
@@ -69,6 +73,7 @@ th {
     border: 1px;
     border-radius: 7px;
     min-width: 200px;
+    font-family: 'SF UI Display Thin';
 }
 #state2{
     text-align: center;
@@ -77,6 +82,7 @@ th {
     border: 1px;
     border-radius: 7px;
     min-width: 200px;   
+    font-family: 'SF UI Display Thin';
 }
 #place {
     text-align: center;
@@ -85,6 +91,7 @@ th {
     border: 1px;
     border-radius: 7px;
     min-width: 400px;
+    font-family: 'SF UI Display Thin';
 }
 
 #placeCount{
@@ -93,6 +100,7 @@ th {
     color: rgb(182,200,205);
     border: 1px;
     border-radius: 7px;
+    font-family: 'SF UI Display Thin';
 }
 
 #data {
@@ -101,6 +109,7 @@ th {
     color: rgb(182,200,205);
     border: 1px;
     border-radius: 7px;
+    font-family: 'SF UI Display Thin';
 }
 
 #hospitalCount{
@@ -109,6 +118,7 @@ th {
     color: white;
     border: 1px;
     border-radius: 7px;
+    font-family: 'SF UI Display Thin';
 }
 
 #med1{
@@ -117,6 +127,7 @@ th {
   color: white;
   border: 1px;
   border-radius: 7px;
+  font-family: 'SF UI Display Thin';
 }
 
 #med2{
@@ -124,7 +135,9 @@ th {
   background-color: rgb(15,57,73);
   color: white;
   border: 1px;
+  font-family: 'SF UI Display Thin';
   border-radius: 7px;
+
 }
 
 #med3{
@@ -135,6 +148,7 @@ th {
   border-radius: 7px;
   padding-left: 10px;
   padding-right: 10px;
+  font-family: 'SF UI Display Thin';
 }
 
 #name{
@@ -143,6 +157,7 @@ th {
   color: white;
   border: 1px;
   border-radius: 7px;
+  font-family: 'SF UI Display Thin';
 }
 
 .search-form-field{
@@ -153,4 +168,9 @@ th {
 
 input::placeholder{
   color: white
+}
+
+.mat-select-red .mat-select-value{
+  color: white !important;
+  font-size: 25px;
 }

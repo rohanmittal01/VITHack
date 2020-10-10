@@ -6,7 +6,7 @@ import {MatTabsModule} from '@angular/material/tabs';
 import { MatFormFieldModule} from '@angular/material/form-field';
 import { MatIconModule} from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
-
+import { MatSelectModule} from '@angular/material/select';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -37,6 +37,7 @@ import { HospitalComponent } from './hospital/hospital.component';
     MatFormFieldModule,
     MatIconModule,
     MatInputModule,
+    MatSelectModule,
     RouterModule.forRoot([
       {path: '', component: HelplineComponent},
       {path: 'advisory', component: AdvisoryComponent},
