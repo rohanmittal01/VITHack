@@ -9,6 +9,11 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule} from '@angular/material/select';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { FusionChartsModule } from 'angular-fusioncharts';
+import * as FusionCharts from "fusioncharts";
+import * as charts from "fusioncharts/fusioncharts.charts";
+import * as FusionTheme from "fusioncharts/themes/fusioncharts.theme.fusion";
+import * as CandyTheme from "fusioncharts/themes/fusioncharts.theme.umber";
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -21,6 +26,7 @@ import { HospitalComponent } from './hospital/hospital.component';
 import { environment } from 'src/environments/environment';
 import { GraphComponent } from './graph/graph.component';
 
+FusionChartsModule.fcRoot(FusionCharts, charts, FusionTheme, CandyTheme);
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,6 +50,7 @@ import { GraphComponent } from './graph/graph.component';
     MatInputModule,
     MatSelectModule,
     AngularFireDatabaseModule,
+    FusionChartsModule,
     AngularFireModule.initializeApp(environment.firebase),
     RouterModule.forRoot([
       {path: '', component: HelplineComponent},
