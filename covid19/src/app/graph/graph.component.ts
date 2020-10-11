@@ -114,7 +114,7 @@ loading = true;
         caption: 'Deceased due to Coronavirus [2020]', // Set the chart caption
         subCaption: '', // Set the chart subcaption
         xAxisName: 'Dates', // Set the x-axis name
-        yAxisName: 'Deaths', // Set the y-axis name
+        yAxisName: 'Deceased', // Set the y-axis name
         numberSuffix: '',
         theme: 'fusion', // Set the theme for your chart
       },
