@@ -2,10 +2,167 @@
     <canvas id="myChart"></canvas>
 </div> -->
 
-<fusioncharts
-  width="100%"
-  height="400"
-  type="column2d"
-  [dataSource]="dataSource"
->
-</fusioncharts>
+<div>
+  <div class="row">
+    <h1 style="color: rgb(167, 42, 83)">Deceased Person Detail</h1>
+  </div>
+  <div class="row mt-2">
+    <!-- <mat-form-field class="search-form-field mt-2">
+      <mat-label style="color: white">Search by State</mat-label>
+      <input
+        matInput
+        [(ngModel)]="stateKey"
+        placeholder="Type to search here."
+        autocomplete="off"
+        (keyup)="applyFilter()"
+      />
+    </mat-form-field> -->
+    <div class="col-lg-4 col-md-4 col-sm-12">
+      <mat-form-field
+        color="accent"
+        appearance="fill"
+        class="search-form-field mt-2"
+      >
+        <mat-label style="color: white">Filter by State</mat-label>
+        <mat-select
+          class="mat-select-red"
+          [(value)]="stateFilter"
+          (selectionChange)="applyFilter()"
+        >
+          <mat-option value="All">All</mat-option>
+          <mat-option *ngFor="let state of states" [value]="state">
+            {{ state }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="col-lg-4 col-md-4 col-sm-12">
+      <mat-form-field
+        color="accent"
+        appearance="fill"
+        class="search-form-field mt-2"
+      >
+        <mat-label style="color: white">Filter by Genders</mat-label>
+        <mat-select
+          class="mat-select-red"
+          [(value)]="genderFilter"
+          (selectionChange)="applyFilter()"
+        >
+          <mat-option value="All">All</mat-option>
+          <mat-option *ngFor="let gender of genders" [value]="gender">
+            {{ gender }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="col-lg-4 col-md-4 col-sm-12">
+      <mat-form-field
+        color="accent"
+        appearance="fill"
+        class="search-form-field mt-2"
+      >
+        <mat-label style="color: white">Filter by Age</mat-label>
+        <mat-select
+          class="mat-select-red"
+          [(value)]="ageFilter"
+          (selectionChange)="applyFilter()"
+        >
+          <mat-option value="All">All</mat-option>
+          <mat-option *ngFor="let age of agesVal" [value]="age">
+            {{ age }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-4 col-md-6 col-sm-12">
+    <mat-form-field
+        color="accent"
+        appearance="fill"
+        class="search-form-field mt-2"
+      >
+      <mat-label>Enter a date range</mat-label>
+      <mat-date-range-input [formGroup]="dateFilter" [rangePicker]="picker">
+        <input matStartDate formControlName="start" placeholder="Start date">
+        <input matEndDate formControlName="end" placeholder="End date">
+      </mat-date-range-input>
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-date-range-picker #picker (selectedValueChange)="applyFilter()"></mat-date-range-picker>
+      
+      <mat-error *ngIf="dateFilter.controls.start.hasError('matStartDateInvalid')">Invalid start date</mat-error>
+      <mat-error *ngIf="dateFilter.controls.end.hasError('matEndDateInvalid')">Invalid end date</mat-error>
+    </mat-form-field>
+    <button class="btn" style="background-color: rgb(167, 42, 83); color: white; border: 1px; border-radius: 0px;" (click)="applyFilter()">Click to Filter Date</button>
+  </div>
+
+  </div>
+  <!-- <div class="row mt-2">
+    <div class="col-lg-6">
+      <mat-form-field color="accent" appearance="fill">
+        <mat-label>Custom calendar color</mat-label>
+        <input matInput [matDatepicker]="picker1" />
+        <mat-datepicker-toggle
+          matSuffix
+          [for]="picker1"
+          ngDefaultControl
+        ></mat-datepicker-toggle>
+        <mat-datepicker
+          [(ngModel)]="fromFilter"
+          #picker1
+          color="primary"
+          (selectedValueChange)="applyFilter4()"
+        ></mat-datepicker>
+      </mat-form-field>
+    </div>
+    <div class="col-lg-6">
+      <mat-form-field color="accent" appearance="fill">
+        <mat-label>Custom calendar color</mat-label>
+        <input matInput [matDatepicker]="picker2" />
+        <mat-datepicker-toggle
+          matSuffix
+          [for]="picker2"
+          ngDefaultControl
+        ></mat-datepicker-toggle>
+        <mat-datepicker
+          [(ngModel)]="toFilter"
+          #picker2
+          color="primary"
+          (selectedValueChange)="applyFilter4()"
+        ></mat-datepicker>
+      </mat-form-field>
+    </div>
+  </div> -->
+  <div class="row col-12 mt-2">
+    <fusioncharts
+      width="100%"
+      height="400"
+      type="column2d"
+      [dataSource]="dataSource"
+    >
+    </fusioncharts>
+  </div>
+  <div class="row mt-2">
+    <div style="display: flex; justify-content: center">
+      <button (click)="exportChart($event)" class="btn btn-primary">
+        Export PDF
+      </button>
+    </div>
+    <div style="display: flex; justify-content: center">
+      <mat-form-field class="search-form-field mt-2">
+        <mat-label style="color: white">Mail to?</mat-label>
+        <input
+          matInput
+          [(ngModel)]="mailId"
+          placeholder="Type Email Id here."
+          autocomplete="off"
+        />
+      </mat-form-field>
+      <button (click)="sendMail()" class="btn btn-primary">
+        Send Mail
+      </button>
+    </div>
+  </div>
+</div>

@@ -3,3 +3,17 @@
     width:400px;
     height: 400px;
 }
+
+.search-form-field{
+    padding-left: 20px;
+    padding-right: 20px;
+    min-width: 400px;
+    background-color: rgb(167, 42, 83);
+  }
+  
+.mat-select-red .mat-select-value{
+    color: white !important;
+    font-size: 25px;
+  }
+
+  

@@ -5,7 +5,7 @@ import { ApiService } from '../_services/api.service';
   selector: 'app-hospital',
   templateUrl: './hospital.component.html',
   styleUrls: ['./hospital.component.css'],
-  encapsulation: ViewEncapsulation.None,
+  encapsulation: ViewEncapsulation.None
 })
 export class HospitalComponent implements OnInit {
   data: any;
@@ -44,6 +44,7 @@ export class HospitalComponent implements OnInit {
       }
       let temp = this.types.filter((v, i, a) => a.indexOf(v) === i);
       this.types = temp;
+  
     });
   }
 

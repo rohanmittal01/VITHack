@@ -10,11 +10,12 @@ import { MatSelectModule} from '@angular/material/select';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { FusionChartsModule } from 'angular-fusioncharts';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 import * as FusionCharts from "fusioncharts";
 import * as charts from "fusioncharts/fusioncharts.charts";
 import * as FusionTheme from "fusioncharts/themes/fusioncharts.theme.fusion";
 import * as CandyTheme from "fusioncharts/themes/fusioncharts.theme.umber";
-
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -49,14 +50,18 @@ FusionChartsModule.fcRoot(FusionCharts, charts, FusionTheme, CandyTheme);
     MatIconModule,
     MatInputModule,
     MatSelectModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
     AngularFireDatabaseModule,
     FusionChartsModule,
     AngularFireModule.initializeApp(environment.firebase),
     RouterModule.forRoot([
       {path: '', component: HelplineComponent},
+      {path: 'helpline', component: HelplineComponent},
       {path: 'advisory', component: AdvisoryComponent},
       {path: 'hospital', component: HospitalComponent},
-      {path: 'graph', component: GraphComponent}
+      {path: 'graph', component: GraphComponent},
+      {path: '*', component: HelplineComponent}
     ])
   ],
   providers: [],
