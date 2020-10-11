@@ -30,11 +30,13 @@ export class AdvisoryComponent implements OnInit {
         this.splitDate(this.data.data.notifications[i]);
       } else {
         this.data.data.notifications[i] = this.data.data.notifications[i].title.replace("&nbsp;", "");
-        this.advisories.push(this.data.data.notifications[i]);
+        this.advisories.push({
+          title: x.title.slice(10),
+          link: x.link});
       }
     }
     // console.log(this.notifications);
-    // console.log(this.advisories);
+    console.log(this.advisories);
   }
 
   splitDate(x) {
@@ -44,6 +46,8 @@ export class AdvisoryComponent implements OnInit {
       link: x.link,
     });
   }
+
+  
 
   ngOnInit(): void {}
 }
