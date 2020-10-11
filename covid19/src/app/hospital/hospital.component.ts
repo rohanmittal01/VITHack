@@ -25,11 +25,11 @@ export class HospitalComponent implements OnInit {
     this.apiService.hospital().subscribe((x) => {
       this.data = x;
       this.filteredData = this.data.data.regional;
-      console.log(this.data);
+      // console.log(this.data);
       for (var i = 0; i < this.data.data.regional.length; i++) {
         this.states.push(this.data.data.regional[i].state);
       }
-      console.log(this.states);
+      // console.log(this.states);
       // this.split();
       // console.log(this.data.data.contacts.regional.length());
     });
@@ -52,10 +52,10 @@ export class HospitalComponent implements OnInit {
     // console.log(this.searchKey);
     // this.filteredMedData = [];
     // console.log(this.medData.data.medicalColleges);
-    console.log(this.cityFilter);
+    // console.log(this.cityFilter);
     if (this.cityFilter == 'All') {
       this.filteredMedData = this.medData.data.medicalColleges;
-      console.log('here');
+      // console.log('here');
     } else {
       this.filteredMedDataTemp = [];
       for (var i = 0; i < this.medData.data.medicalColleges.length; i++) {
@@ -69,17 +69,17 @@ export class HospitalComponent implements OnInit {
       this.filteredMedData = this.filteredMedDataTemp;
     }
     this.typeFilter == 'All';
-    console.log(this.filteredMedData);
+    // console.log(this.filteredMedData);
   }
 
   applyFilter2() {
     // console.log(this.searchKey);
     // this.filteredMedData = [];
     // console.log(this.medData.data.medicalColleges);
-    console.log(this.stateFilter);
+    // console.log(this.stateFilter);
     if (this.stateFilter == 'All') {
       this.filteredData = this.data.data.regional;
-      console.log('here');
+      // console.log('here');
     } else {
       this.filteredDataTemp = [];
       for (var i = 0; i < this.data.data.regional.length; i++) {
@@ -92,21 +92,21 @@ export class HospitalComponent implements OnInit {
       this.filteredData = this.filteredDataTemp;
     }
 
-    console.log(this.filteredData);
+    // console.log(this.filteredData);
   }
 
   applyFilter3() {
     // console.log(this.searchKey);
     // this.filteredMedData = [];
     // console.log(this.medData.data.medicalColleges);
-    console.log(this.typeFilter);
+    // console.log(this.typeFilter);
     if (this.typeFilter == 'All') {
       this.filteredMedData = this.medData.data.medicalColleges;
-      console.log('here');
+      // console.log('here');
     } else {
       this.filteredMedDataTemp = [];
       for (var i = 0; i < this.medData.data.medicalColleges.length; i++) {
-        console.log(this.medData.data.medicalColleges[i].ownership);
+        // console.log(this.medData.data.medicalColleges[i].ownership);
         var a = this.medData.data.medicalColleges[i].ownership;
         if (a != null) {
           if (a.toLowerCase() == this.typeFilter.toLowerCase()) {
@@ -115,10 +115,10 @@ export class HospitalComponent implements OnInit {
         }
       }
       this.filteredMedData = this.filteredMedDataTemp;
-      console.log(this.filteredMedData);
+      // console.log(this.filteredMedData);
     }
     this.cityFilter == 'All';
-    console.log(this.filteredMedData);
+    // console.log(this.filteredMedData);
   }
 
   onSearchClear() {

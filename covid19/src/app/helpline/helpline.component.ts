@@ -17,7 +17,7 @@ export class HelplineComponent implements OnInit {
       this.data = x;
       this.tollfree = this.data.data.contacts.primary["number-tollfree"];
       // console.log(this.data.data.contacts.regional.length());
-      console.log(this.data.data.contacts.regional);
+      // console.log(this.data.data.contacts.regional);
       this.split();
     });
    }
@@ -25,15 +25,15 @@ export class HelplineComponent implements OnInit {
    split(){
      // tslint:disable-next-line: forin
      for (let i = 0; i < this.data.data.contacts.regional.length; i++){
-       console.log(i);
+      //  console.log(i);
        this.data1.push(this.data.data.contacts.regional[i]);
        i = i + 1;
        if (i < this.data.data.contacts.regional.length) {
         this.data2.push(this.data.data.contacts.regional[i]);
        }
      }
-     console.log(this.data1);
-     console.log(this.data2);
+    //  console.log(this.data1);
+    //  console.log(this.data2);
    }
 
 twitter(){

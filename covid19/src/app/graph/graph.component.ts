@@ -12,6 +12,8 @@ import * as fusioncharts from 'fusioncharts';
 })
 export class GraphComponent implements OnInit {
   // tslint:disable-next-line: ban-types
+loading = true;
+
   dataSource: Object;
   arr: any = [];
   mailId = '';
@@ -56,11 +58,12 @@ export class GraphComponent implements OnInit {
   sortedData: any = [];
   dict: any = {};
   constructor(private db: AngularFireDatabase) {
-    console.log('data: ', this.dateFilter.value);
+    // console.log('data: ', this.dateFilter.value);
     this.db
       .list('/')
       .valueChanges()
       .subscribe((x) => {
+        this.loading = true;
         this.dataValues = x;
         // console.log(this.dataValues);
         // tslint:disable-next-line: prefer-for-of
@@ -83,7 +86,7 @@ export class GraphComponent implements OnInit {
         this.states = temp;
         temp = this.genders.filter((v, i, a) => a.indexOf(v) === i);
         this.genders = temp;
-        console.log(this.states);
+        // console.log(this.states);
         this.filter(this.dataValues);
       });
   }
@@ -119,6 +122,7 @@ export class GraphComponent implements OnInit {
       data: this.arr,
     };
     this.dataSource = dataSource;
+    this.loading = false;
   }
 
   applyFilter() {
@@ -126,7 +130,8 @@ export class GraphComponent implements OnInit {
     // this.filteredMedData = [];
     // console.log(this.medData.data.medicalColleges);
     // console.log(this.stateFilter);
-    console.log('date: ', this.convertDate(this.dateFilter.value.start));
+    this.loading = true;
+    // console.log('date: ', this.convertDate(this.dateFilter.value.start));
     this.fromFilter = this.convertDate(this.dateFilter.value.start).toString();
     this.toFilter = this.convertDate(this.dateFilter.value.end).toString();
     if (
@@ -136,7 +141,7 @@ export class GraphComponent implements OnInit {
       (this.fromFilter == '01/01/1970')
     ) {
       this.filteredData = this.dataValues;
-      console.log('here');
+      // console.log('here');
     } else {
       this.filteredDataTemp = [];
       for (var i = 0; i < this.dataValues.length; i++) {
@@ -165,19 +170,22 @@ export class GraphComponent implements OnInit {
        
         // var d1 = Date.parse(this.fromFilter);
         // var d2 = Date.parse(a.reportedOn);
-        console.log(this.fromFilter);
-        console.log(this.toFilter);
+        // console.log(this.fromFilter);
+        // console.log(this.toFilter);
+        if(this.fromFilter == '01/01/1970' && this.toFilter == '01/01/1970'){
+          count+=2;
+        }else{
         var n = a.reportedOn.localeCompare(this.fromFilter);
         if (n == 1) {
             count+=1
-            console.log('here');
+            // console.log('here');
           }
-          
          n = a.reportedOn.localeCompare(this.toFilter);
           if (n == -1) {
               count+=1
-              console.log('here');
+              // console.log('here');
             }
+        } 
         
         if (count == 5) {
           this.filteredDataTemp.push(a);
@@ -185,7 +193,7 @@ export class GraphComponent implements OnInit {
       }
       this.filteredData = this.filteredDataTemp;
     }
-    console.log(this.filteredData);
+    // console.log(this.filteredData);
     this.filter(this.filteredData);
   }
 
@@ -203,7 +211,7 @@ export class GraphComponent implements OnInit {
 
   sendMail() {
     var emailLink =
-      'https://mail.google.com/mail/u/0/?view=cm&fs=1&to=%20&suShare%20Deceased%20Persons%20Report&body=This%20is%20regarding%20the%20IETE%20Recruitments%202020%20Portal.%20I%20was%20redirected%20to%20an%20incorrect%20link.%20Please%20specify%20the%20source%20link%20&bcc=rohan.mittal2018@vitstudent.ac.in&tf=1';
+      'https://mail.google.com/mail/u/0/?view=cm&fs=1&to=%20&su=Share%20Deceased%20Persons%20Report&body=This%20was%20generated%20from%20our%20website.%20%20Please%20download%20the%20graph%20using%20the%20Export%20PDF%20button%20and%20attach%20it.%20&bcc=rohan.mittal2018@vitstudent.ac.in&tf=1';
     window.open(emailLink);
   }
 

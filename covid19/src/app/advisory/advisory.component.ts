@@ -14,7 +14,7 @@ export class AdvisoryComponent implements OnInit {
   constructor(private apiService: ApiService) {
     this.apiService.notifications().subscribe((x) => {
       this.data = x;
-      console.log(this.data);
+      // console.log(this.data);
       this.split();
       // console.log(this.data.data.contacts.regional.length());
     });
@@ -33,8 +33,8 @@ export class AdvisoryComponent implements OnInit {
         this.advisories.push(this.data.data.notifications[i]);
       }
     }
-    console.log(this.notifications);
-    console.log(this.advisories);
+    // console.log(this.notifications);
+    // console.log(this.advisories);
   }
 
   splitDate(x) {

@@ -99,42 +99,9 @@
   </div>
 
   </div>
-  <!-- <div class="row mt-2">
-    <div class="col-lg-6">
-      <mat-form-field color="accent" appearance="fill">
-        <mat-label>Custom calendar color</mat-label>
-        <input matInput [matDatepicker]="picker1" />
-        <mat-datepicker-toggle
-          matSuffix
-          [for]="picker1"
-          ngDefaultControl
-        ></mat-datepicker-toggle>
-        <mat-datepicker
-          [(ngModel)]="fromFilter"
-          #picker1
-          color="primary"
-          (selectedValueChange)="applyFilter4()"
-        ></mat-datepicker>
-      </mat-form-field>
-    </div>
-    <div class="col-lg-6">
-      <mat-form-field color="accent" appearance="fill">
-        <mat-label>Custom calendar color</mat-label>
-        <input matInput [matDatepicker]="picker2" />
-        <mat-datepicker-toggle
-          matSuffix
-          [for]="picker2"
-          ngDefaultControl
-        ></mat-datepicker-toggle>
-        <mat-datepicker
-          [(ngModel)]="toFilter"
-          #picker2
-          color="primary"
-          (selectedValueChange)="applyFilter4()"
-        ></mat-datepicker>
-      </mat-form-field>
-    </div>
-  </div> -->
+ <div class="row col-12" *ngIf="loading">
+  <div class="loader" style="margin:auto"></div>
+ </div>
   <div class="row col-12 mt-2">
     <fusioncharts
       width="100%"
@@ -144,13 +111,13 @@
     >
     </fusioncharts>
   </div>
-  <div class="row mt-2">
+  <div class="row mt-2 col-12">
     <div style="display: flex; justify-content: center">
-      <button (click)="exportChart($event)" class="btn btn-primary">
+      <button class="btn" style="background-color: rgb(167, 42, 83); color: white; border: 1px; border-radius: 0px;" (click)="exportChart($event)" class="btn btn-primary">
         Export PDF
       </button>
     </div>
-    <div style="display: flex; justify-content: center">
+    <div class="ml-4" style="display: flex; justify-content: center; background-color: rgb(167, 42, 83); ">
       <mat-form-field class="search-form-field mt-2">
         <mat-label style="color: white">Mail to?</mat-label>
         <input
@@ -160,7 +127,7 @@
           autocomplete="off"
         />
       </mat-form-field>
-      <button (click)="sendMail()" class="btn btn-primary">
+      <button class="btn ml-2" style="background-color: rgb(167, 42, 83); color: white; border: 1px; border-radius: 0px;" (click)="sendMail()" class="btn btn-primary">
         Send Mail
       </button>
     </div>
