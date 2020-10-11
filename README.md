@@ -1,6 +1,8 @@
-# COVID19
+# VITHack
 
-Team 2 - 
+# Team Cliche
+
+Team Members- 
 - Rohan Mittal
 - Shimoni Mehrotra
 - Madhur Padavala
