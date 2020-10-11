@@ -26,6 +26,7 @@ import { AdvisoryComponent } from './advisory/advisory.component';
 import { HospitalComponent } from './hospital/hospital.component';
 import { environment } from 'src/environments/environment';
 import { GraphComponent } from './graph/graph.component';
+import { HomeComponent } from './home/home.component';
 
 FusionChartsModule.fcRoot(FusionCharts, charts, FusionTheme, CandyTheme);
 @NgModule({
@@ -35,7 +36,8 @@ FusionChartsModule.fcRoot(FusionCharts, charts, FusionTheme, CandyTheme);
     HelplineComponent,
     AdvisoryComponent,
     HospitalComponent,
-    GraphComponent
+    GraphComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -56,7 +58,8 @@ FusionChartsModule.fcRoot(FusionCharts, charts, FusionTheme, CandyTheme);
     FusionChartsModule,
     AngularFireModule.initializeApp(environment.firebase),
     RouterModule.forRoot([
-      {path: '', component: HelplineComponent},
+      {path: '', component: HomeComponent},
+      {path: 'home', component: HomeComponent},
       {path: 'helpline', component: HelplineComponent},
       {path: 'advisory', component: AdvisoryComponent},
       {path: 'hospital', component: HospitalComponent},
