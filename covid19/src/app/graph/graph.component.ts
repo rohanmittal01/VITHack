@@ -4,6 +4,7 @@ import { AngularFireDatabase } from 'angularfire2/database';
 import { Chart } from 'chart.js';
 import * as FusionCharts from 'fusioncharts';
 import * as fusioncharts from 'fusioncharts';
+import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-graph',
   templateUrl: './graph.component.html',
@@ -33,16 +34,6 @@ loading = true;
     '60- 69',
     '70 +',
   ];
-  ages: any = [
-    { min: 0, max: 9 },
-    { min: 10, max: 19 },
-    { min: 20, max: 29 },
-    { min: 30, max: 39 },
-    { min: 40, max: 49 },
-    { min: 50, max: 59 },
-    { min: 60, max: 69 },
-    { min: 70, max: 130 },
-  ];
   ageFilter = '';
   fromFilter = '';
   toFilter = '';
@@ -57,9 +48,11 @@ loading = true;
   dataValues: any;
   sortedData: any = [];
   dict: any = {};
+
+  subscription1: Subscription;
   constructor(private db: AngularFireDatabase) {
     // console.log('data: ', this.dateFilter.value);
-    this.db
+    this.subscription1 = this.db
       .list('/')
       .valueChanges()
       .subscribe((x) => {
@@ -89,11 +82,13 @@ loading = true;
         // console.log(this.states);
         this.filter(this.dataValues);
       });
+    
   }
 
   // Preparing the chart data
 
   filter(data) {
+    this.subscription1.unsubscribe();
     this.dict = {};
     for (let i = 0; i < data.length; i++) {
       // console.log(this.dataValues[i].reportedOn);
