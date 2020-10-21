@@ -8,7 +8,7 @@
     </h1>
   </div>
 
-  <div class="row mt-4">
+  <div class="row mt-4" style="width: 100%; display: block">
     <mat-tab-group>
       <mat-tab label="Notifications">
         <div class="row">
@@ -33,9 +33,9 @@
       <mat-tab label="Advisories">
         <div class="row">
           <div class="col-12">
-            <table id="notifications" style="display: block">
-              <tr *ngFor="let note of advisories">
-                <td id="advisory">
+            <table  style="border-collapse: collapse;width: 100%">
+              <tr id="advisory" *ngFor="let note of advisories"  style="width: 100%; border: 10px solid rgb(18,14,34); border-radius: 10px;">
+                <td style="width: 100%">
                   <a
                     style="font-family: SF Pro Display Regular"
                     href="{{ note.link }}"

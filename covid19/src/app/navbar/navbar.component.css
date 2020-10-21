@@ -12,28 +12,14 @@
 
 
 a{
-    color: white
+    color: white;
 }
 
-/* #helpline{
-    background-color: rgb(26,19,46);
-    border: 1px;
-    border-radius: 10px;
-    padding: 8px 15px 8px 15px;
-    font-family: 'SF UI Display Light';
-}
-#advisory{
-    background-color: rgb(67,34,41);
-    border: 1px;
-    border-radius: 10px;
-    padding: 8px 15px 8px 15px;
-    font-family: 'SF UI Display Light';
-}
 
-#hospital{
-    background-color: rgb(18,119,125);
-    border: 1px;
-    border-radius: 10px;
-    padding: 8px 15px 8px 15px;
-    font-family: 'SF UI Display Light';
-} */
+.custom-toggler .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,102,203, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+  }
+  
+  .custom-toggler.navbar-toggler {
+    border-color: rgb(255,102,203);
+  } 

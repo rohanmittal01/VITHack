@@ -7,7 +7,8 @@
 .search-form-field{
     padding-left: 20px;
     padding-right: 20px;
-    min-width: 400px;
+    /* min-width: 400px; */
+    width: 100%;
     background-color: rgb(167, 42, 83);
   }
   
@@ -21,8 +22,8 @@
     border: 16px solid #f3f3f3;
     border-radius: 50%;
     border-top: 16px solid rgb(167, 42, 83);
-    width: 30px;
-    height: 30px;
+    width: 90px;
+    height: 90px;
     -webkit-animation: spin 2s linear infinite; /* Safari */
     animation: spin 2s linear infinite;
   }

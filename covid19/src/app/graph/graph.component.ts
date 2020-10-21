@@ -61,7 +61,7 @@ loading = true;
         // console.log(this.dataValues);
         // tslint:disable-next-line: prefer-for-of
         this.filteredData = this.dataValues;
-        for (var i = 0; i < this.dataValues.length; i++) {
+        for (let i = 0; i < this.dataValues.length; i++) {
           if (
             this.dataValues[i].state != null &&
             this.dataValues[i].state != ''
@@ -111,7 +111,8 @@ loading = true;
         xAxisName: 'Dates', // Set the x-axis name
         yAxisName: 'Deceased', // Set the y-axis name
         numberSuffix: '',
-        theme: 'fusion', // Set the theme for your chart
+        theme: 'fusion', // Set the theme for your chart,
+        exportEnabled: true
       },
       // Chart Data - from step 2
       data: this.arr,
@@ -121,28 +122,35 @@ loading = true;
   }
 
   applyFilter() {
-    // console.log(this.searchKey);
-    // this.filteredMedData = [];
-    // console.log(this.medData.data.medicalColleges);
-    // console.log(this.stateFilter);
+
     this.loading = true;
     // console.log('date: ', this.convertDate(this.dateFilter.value.start));
     this.fromFilter = this.convertDate(this.dateFilter.value.start).toString();
     this.toFilter = this.convertDate(this.dateFilter.value.end).toString();
+
     if (
       (this.stateFilter == 'All' || this.stateFilter == '') &&
       (this.genderFilter == 'All' || this.genderFilter == '') &&
-      (this.ageFilter == 'All' || this.ageFilter == '') && 
-      (this.fromFilter == '01/01/1970')
+      (this.ageFilter == 'All' || this.ageFilter == '') &&
+      (this.fromFilter == '01/01/1970') &&
+      (this.toFilter == '01/01/1970')
     ) {
+      console.log('here');
       this.filteredData = this.dataValues;
-      // console.log('here');
     } else {
       this.filteredDataTemp = [];
-      for (var i = 0; i < this.dataValues.length; i++) {
+    // tslint:disable-next-line: max-line-length
+      this.fromFilter = this.fromFilter[3] + this.fromFilter[4] + '/' + this.fromFilter[0] + this.fromFilter[1] + '/' + this.fromFilter[6] + this.fromFilter[7] + this.fromFilter[8] + this.fromFilter[9];
+      // tslint:disable-next-line: max-line-length
+      this.toFilter = this.toFilter[3] + this.toFilter[4] + '/' + this.toFilter[0] + this.toFilter[1] + '/' + this.toFilter[6] + this.toFilter[7] + this.toFilter[8] + this.toFilter[9];
+      console.log(new Date(this.fromFilter));
+      console.log(new Date(this.toFilter));
+      console.log('-------------------');
+      // tslint:disable-next-line: prefer-for-of
+      for (let i = 0; i < this.dataValues.length; i++) {
         // console.log(this.medData.data.medicalColleges[i]);
-        var a = this.dataValues[i];
-        var count = 0;
+        const a = this.dataValues[i];
+        let count = 0;
         if (this.stateFilter == 'All' || this.stateFilter == '') {
           count += 1;
         } else if (
@@ -167,19 +175,30 @@ loading = true;
         // var d2 = Date.parse(a.reportedOn);
         // console.log(this.fromFilter);
         // console.log(this.toFilter);
-        if(this.fromFilter == '01/01/1970' && this.toFilter == '01/01/1970'){
-          count+=2;
+        a.reportedOn = a.reportedOn[3] + a.reportedOn[4] + '/' + a.reportedOn[0] + a.reportedOn[1] + '/' + a.reportedOn[6] + a.reportedOn[7] + a.reportedOn[8] + a.reportedOn[9];
+        
+        if (this.fromFilter == '01/01/1970' && this.toFilter == '01/01/1970'){
+          count += 2;
         }else{
-        var n = a.reportedOn.localeCompare(this.fromFilter);
-        if (n == 1) {
-            count+=1
+   
+          if (new Date(a.reportedOn) >= new Date(this.fromFilter)){
+            // console.log(new Date(a.reportedOn));
             // console.log('here');
+            count += 1;
           }
-         n = a.reportedOn.localeCompare(this.toFilter);
-          if (n == -1) {
-              count+=1
-              // console.log('here');
-            }
+        // var n = a.reportedOn.localeCompare(this.fromFilter);
+        // if (n == 1) {
+        //     count+=1
+        //     // console.log('here');
+        //   }
+        if (new Date(a.reportedOn) <= new Date(this.toFilter)){
+          count += 1;
+        }
+        //  n = a.reportedOn.localeCompare(this.toFilter);
+          // if (n == -1) {
+          //     count+=1
+          //     // console.log('here');
+          //   }
         } 
         
         if (count == 5) {
@@ -188,14 +207,14 @@ loading = true;
       }
       this.filteredData = this.filteredDataTemp;
     }
-    // console.log(this.filteredData);
+    console.log(this.filteredData);
     this.filter(this.filteredData);
   }
 
   convertDate(inputFormat) {
     function pad(s) { return (s < 10) ? '0' + s : s; }
-    var d = new Date(inputFormat)
-    return [pad(d.getDate()), pad(d.getMonth()+1), d.getFullYear()].join('/')
+    let d = new Date(inputFormat)
+    return [pad(d.getDate()), pad(d.getMonth() + 1), d.getFullYear()].join('/')
   }
 
   exportChart(e) {
@@ -205,7 +224,7 @@ loading = true;
   }
 
   sendMail() {
-    var emailLink =
+    let emailLink =
       'https://mail.google.com/mail/u/0/?view=cm&fs=1&to=%20&su=Share%20Deceased%20Persons%20Report&body=This%20was%20generated%20from%20our%20website.%20%20Please%20download%20the%20graph%20using%20the%20Export%20PDF%20button%20and%20attach%20it.%20&bcc=rohan.mittal2018@vitstudent.ac.in&tf=1';
     window.open(emailLink);
   }
